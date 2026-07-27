@@ -1,0 +1,1331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SalarySe - Senior Product Designer Case Study | Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #2563eb;
+            --dark-blue: #1e40af;
+            --light-blue: #dbeafe;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-600: #4b5563;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+            --text-primary: #111827;
+            --text-secondary: #6b7280;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.7;
+            color: var(--text-primary);
+            background: white;
+        }
+
+        /* Typography */
+        h1 { font-size: 3.5rem; font-weight: 700; line-height: 1.1; margin-bottom: 1.5rem; }
+        h2 { font-size: 2.5rem; font-weight: 700; line-height: 1.2; margin-bottom: 1.5rem; color: var(--gray-900); }
+        h3 { font-size: 1.875rem; font-weight: 600; line-height: 1.3; margin-bottom: 1rem; color: var(--gray-800); }
+        h4 { font-size: 1.5rem; font-weight: 600; line-height: 1.4; margin-bottom: 0.875rem; }
+        p { font-size: 1.125rem; line-height: 1.8; margin-bottom: 1.5rem; color: var(--text-secondary); }
+        
+        .large-text { font-size: 1.375rem; line-height: 1.7; color: var(--gray-700); }
+        .small-text { font-size: 0.95rem; color: var(--text-secondary); }
+
+        /* Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 6rem 0;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        section:last-child {
+            border-bottom: none;
+        }
+
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--gray-200);
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+        }
+
+        nav .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--primary-blue);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--gray-50) 0%, var(--light-blue) 100%);
+            padding: 8rem 0 6rem;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            background: var(--primary-blue);
+            color: white;
+            padding: 0.5rem 1.25rem;
+            border-radius: 2rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+        }
+
+        .hero-meta {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+            padding: 2.5rem;
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .hero-meta-item h4 {
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .hero-meta-item p {
+            color: var(--gray-900);
+            font-weight: 600;
+            margin: 0;
+            font-size: 1rem;
+        }
+
+        /* Image Styles */
+        .case-study-image {
+            width: 100%;
+            border-radius: 0.75rem;
+            margin: 2.5rem 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .case-study-image:hover {
+            transform: scale(1.02);
+        }
+
+        .image-caption {
+            text-align: center;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-top: 1rem;
+            font-style: italic;
+        }
+
+        /* Cards */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2.5rem 0;
+        }
+
+        .card {
+            background: var(--gray-50);
+            padding: 2rem;
+            border-radius: 0.75rem;
+            border-left: 4px solid var(--primary-blue);
+        }
+
+        .card h4 {
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+
+        .card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .card li {
+            padding: 0.5rem 0;
+            color: var(--text-secondary);
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .card li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--primary-blue);
+            font-weight: bold;
+        }
+
+        /* Quote Block */
+        .quote-block {
+            background: var(--light-blue);
+            border-left: 4px solid var(--primary-blue);
+            padding: 2rem 2.5rem;
+            margin: 3rem 0;
+            border-radius: 0.5rem;
+        }
+
+        .quote-block p {
+            font-size: 1.375rem;
+            font-weight: 500;
+            color: var(--gray-800);
+            margin: 0;
+            font-style: italic;
+        }
+
+        /* Lists */
+        .content-list {
+            margin: 2rem 0;
+        }
+
+        .content-list li {
+            margin: 1rem 0;
+            padding-left: 2rem;
+            position: relative;
+            color: var(--text-secondary);
+        }
+
+        .content-list li:before {
+            content: "•";
+            position: absolute;
+            left: 0.5rem;
+            color: var(--primary-blue);
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 2rem;
+            background: var(--gray-50);
+            border-radius: 0.75rem;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: var(--text-secondary);
+        }
+
+        /* Section Header */
+        .section-number {
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--primary-blue);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 2rem; }
+            h3 { font-size: 1.5rem; }
+            p { font-size: 1rem; }
+            
+            section { padding: 4rem 0; }
+            .hero { padding: 5rem 0 3rem; }
+            
+            nav .nav-links {
+                display: none;
+            }
+            
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--primary-blue);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: 999;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+        }
+
+        .back-to-top:hover {
+            background: var(--dark-blue);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">SalarySe Case Study</div>
+            <ul class="nav-links">
+                <li><a href="#hero">Overview</a></li>
+                <li><a href="#problem">Problem</a></li>
+                <li><a href="#research">Research</a></li>
+                <li><a href="#solution">Solution</a></li>
+                <li><a href="#impact">Impact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="container">
+            <span class="hero-tag">Senior Product Designer Case Study</span>
+            <h1>SalarySe: Redesigning Financial Wellness for India's Salaried Class</h1>
+            <p class="large-text">
+                How I transformed a fragmented fintech experience into a unified platform that empowers 100,000+ salaried users to manage UPI payments, salary advances, loans, savings, and rewards with confidence and trust.
+            </p>
+            
+            <div class="hero-meta">
+                <div class="hero-meta-item">
+                    <h4>Role</h4>
+                    <p>Senior Product Designer</p>
+                </div>
+                <div class="hero-meta-item">
+                    <h4>Timeline</h4>
+                    <p>9 months (2023-2024)</p>
+                </div>
+                <div class="hero-meta-item">
+                    <h4>Platform</h4>
+                    <p>Mobile App (iOS & Android)</p>
+                </div>
+                <div class="hero-meta-item">
+                    <h4>Team</h4>
+                    <p>2 PMs, 5 Engineers, 1 Researcher, 3 Designers</p>
+                </div>
+                <div class="hero-meta-item">
+                    <h4>My Focus</h4>
+                    <p>End-to-end UX, Design Systems, Product Strategy</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Background -->
+    <section id="background">
+        <div class="container">
+            <span class="section-number">01 — Background</span>
+            <h2>The Financial Stress of India's Salaried Employees</h2>
+            
+            <p>
+                India has over 80 million salaried employees, yet most struggle with fragmented financial tools. I observed this firsthand during stakeholder conversations and early user research: people were juggling multiple apps for basic financial tasks—one for UPI payments, another for emergency loans, a third for savings.
+            </p>
+
+            <p>
+                The fintech landscape in India is crowded with single-purpose solutions. CRED focuses on credit card payments. PayTM emphasizes wallet transactions. Traditional banks offer loans but lack speed and transparency. None provided a holistic view of financial health tailored to salaried users.
+            </p>
+
+            <p>
+                More critically, I discovered that trust was the missing ingredient. Users were hesitant to link salary data, unclear about loan terms, and anxious about transaction failures. Financial products felt transactional rather than supportive.
+            </p>
+
+            <div class="quote-block">
+                <p>"I want to feel in control of my money, not stressed by it. But every app makes me feel like I'm making risky decisions."</p>
+            </div>
+
+            <p>
+                This insight became the foundation of our work: we weren't just designing features—we were designing for financial confidence.
+            </p>
+        </div>
+    </section>
+
+    <!-- Problem Statement -->
+    <section id="problem">
+        <div class="container">
+            <span class="section-number">02 — Problem Statement</span>
+            <h2>The Problems We Set Out to Solve</h2>
+            
+            <p>
+                Through conversations with Product, Engineering, and our founding team, I helped frame the problem across four dimensions:
+            </p>
+
+            <div class="card-grid">
+                <div class="card">
+                    <h4>Business Problems</h4>
+                    <ul>
+                        <li>Low user activation (42% drop-off after signup)</li>
+                        <li>High customer support volume (18% of users contacted support)</li>
+                        <li>Poor cross-product discovery (users didn't know about salary advance)</li>
+                        <li>Competitive pressure from CRED, Jupiter, and PayTM</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>User Problems</h4>
+                    <ul>
+                        <li>Financial anxiety around borrowing and repayment</li>
+                        <li>Confusion about eligibility and terms</li>
+                        <li>Fear of transaction failure and irreversible mistakes</li>
+                        <li>Lack of clarity on how salary data is used</li>
+                        <li>Overwhelming financial terminology</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>Technical Constraints</h4>
+                    <ul>
+                        <li>Legacy backend limited real-time balance updates</li>
+                        <li>NPCI UPI integration had strict timeout limits</li>
+                        <li>KYC verification required third-party API coordination</li>
+                        <li>Offline mode was not supported initially</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>Compliance Challenges</h4>
+                    <ul>
+                        <li>RBI guidelines on lending disclosures</li>
+                        <li>Data privacy regulations (DPDP Act)</li>
+                        <li>NPCI transaction flow requirements</li>
+                        <li>Clear communication of interest rates and fees</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>Success Metrics</h3>
+            <p>
+                Working with Product leadership, I helped define what success would look like:
+            </p>
+            <ul class="content-list">
+                <li><strong>Activation Rate:</strong> Increase from 58% to 75%</li>
+                <li><strong>Task Success Rate:</strong> Achieve 90%+ completion for key flows</li>
+                <li><strong>Drop-off Reduction:</strong> Reduce abandonment by 30%</li>
+                <li><strong>Support Tickets:</strong> Decrease by 40%</li>
+                <li><strong>NPS:</strong> Move from 52 to 65+</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Research -->
+    <section id="research">
+        <div class="container">
+            <span class="section-number">03 — Research</span>
+            <h2>Understanding Our Users and Their Financial Behaviors</h2>
+            
+            <p>
+                I led the research effort in collaboration with our UX Researcher, coordinating multiple research streams to build a complete picture of user needs and behaviors.
+            </p>
+
+            <h3>Research Methods</h3>
+            
+            <div class="card-grid">
+                <div class="card">
+                    <h4>Stakeholder Interviews (12)</h4>
+                    <ul>
+                        <li>Founders and product leadership</li>
+                        <li>Customer support team insights</li>
+                        <li>Engineering constraints and opportunities</li>
+                        <li>Compliance and legal requirements</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>User Interviews (24)</h4>
+                    <ul>
+                        <li>Current users (power users and casual users)</li>
+                        <li>Churned users (why they left)</li>
+                        <li>Competitor app users</li>
+                        <li>Non-users in target demographic</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>Behavioral Analysis</h4>
+                    <ul>
+                        <li>App analytics deep-dive (Mixpanel)</li>
+                        <li>Heatmaps and session recordings</li>
+                        <li>Funnel analysis for key flows</li>
+                        <li>Time-on-task measurements</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>Secondary Research</h4>
+                    <ul>
+                        <li>Competitive benchmarking (CRED, Jupiter, PayTM, PhonePe)</li>
+                        <li>App Store reviews (500+ analyzed)</li>
+                        <li>Industry reports on fintech trust and adoption</li>
+                        <li>Academic research on financial anxiety</li>
+                    </ul>
+                </div>
+            </div>
+
+            <img src="https://static.prod-images.emergentagent.com/jobs/597f04ac-60d6-4fd0-919a-547faecc3806/images/771a07a7e7c5f8fddb1b623179dfc5b97a04b0ed492e21b3f339abde17395b92.jpeg" alt="Affinity Mapping" class="case-study-image">
+            <p class="image-caption">Affinity mapping from user interviews revealed 5 key themes</p>
+
+            <img src="https://static.prod-images.emergentagent.com/jobs/597f04ac-60d6-4fd0-919a-547faecc3806/images/6d65a9631b493bec46119b416fd7d4b359b84e7810202709dc63b15ca7720e14.jpeg" alt="Competitive Analysis" class="case-study-image">
+            <p class="image-caption">Competitive analysis helped identify gaps in the market</p>
+        </div>
+    </section>
+
+    <!-- Research Findings -->
+    <section>
+        <div class="container">
+            <span class="section-number">04 — Research Findings</span>
+            <h2>Six Key Insights That Shaped Our Design</h2>
+            
+            <p>
+                After synthesizing research data with the team, six critical insights emerged that would guide every design decision:
+            </p>
+
+            <img src="https://static.prod-images.emergentagent.com/jobs/597f04ac-60d6-4fd0-919a-547faecc3806/images/cf518b952d101442a5c08d4fca5244a14f3474c8e2e9213fcc8c0da6762156ab.jpeg" alt="Research Insights" class="case-study-image">
+
+            <div class="card-grid">
+                <div class="card">
+                    <h4>1. Hesitation Before Transactions</h4>
+                    <p>
+                        Users paused 3-5 seconds before confirming payments, mentally double-checking details. This wasn't friction—it was a natural trust-building moment we needed to support, not eliminate.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h4>2. Financial Terminology Overload</h4>
+                    <p>
+                        Terms like "APR," "processing fee," and "tenor" created cognitive load. Users wanted plain language: "You'll pay back ₹10,500 over 3 months."
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h4>3. Trust Through Transparency</h4>
+                    <p>
+                        Users trusted apps that showed calculations, explained why data was needed, and provided clear repayment schedules. Hidden complexity bred suspicion.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h4>4. Emotional Stigma Around Borrowing</h4>
+                    <p>
+                        Salary advances carried stigma. Users wanted privacy and non-judgmental language. "Early salary access" felt better than "loan."
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h4>5. Contextual Guidance Preferred</h4>
+                    <p>
+                        Users skipped onboarding tutorials but welcomed in-context tooltips when encountering new features. Just-in-time education beat upfront education.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h4>6. Irreversibility Anxiety</h4>
+                    <p>
+                        Fear of making mistakes was real. Users wanted confirmation screens, clear "undo" paths, and reassurance that errors could be fixed.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Personas -->
+    <section>
+        <div class="container">
+            <span class="section-number">05 — Behavioral Personas</span>
+            <h2>Three Primary User Archetypes</h2>
+            
+            <p>
+                Rather than demographic personas, I developed behavioral personas based on financial goals, stress levels, and product needs. These helped the team maintain empathy throughout the design process.
+            </p>
+
+            <img src="https://static.prod-images.emergentagent.com/jobs/597f04ac-60d6-4fd0-919a-547faecc3806/images/98598c1246b85620b8e6cca57156ac8d997ac085aaf3abe37f33d25316857ecf.jpeg" alt="Persona 1" class="case-study-image">
+            <p class="image-caption">Persona 1: Young Salaried Professional building financial independence</p>
+
+            <img src="https://static.prod-images.emergentagent.com/jobs/597f04ac-60d6-4fd0-919a-547faecc3806/images/d742afa66b11761b5f9189483edc34cc56e2f186cea022297a2d5e23c3cbbb4b.jpeg" alt="Persona 2" class="case-study-image">
+            <p class="image-caption">Persona 2: Family Financial Planner managing household expenses</p>
+
+            <img src="https://static.prod-images.emergentagent.com/jobs/597f04ac-60d6-4fd0-919a-547faecc3806/images/07247ecfac1f6ca201d731e1fa26c655a8a292a119d70676c0292bbf2c4a7ef8.jpeg" alt="Persona 3" class="case-study-image">
+            <p class="image-caption">Persona 3: Emergency Borrower needing quick, judgment-free access to funds</p>
+        </div>
+    </section>
+
+    <!-- Jobs To Be Done -->
+    <section>
+        <div class="container">
+            <span class="section-number">06 — Jobs To Be Done</span>
+            <h2>What Users Were Really Hiring SalarySe to Do</h2>
+            
+            <p>
+                Instead of thinking in features, I worked with Product to frame user needs as jobs to be done. This shifted our focus from "what to build" to "what problem to solve."
+            </p>
+
+            <img src="https://static.prod-images.emergentagent.com/jobs/597f04ac-60d6-4fd0-919a-547faecc3806/images/6f181d8e0af940c0d90e69c38c66b8ef4e8589684f827e4a78ba56095f3fa0bb.jpeg" alt="JTBD Cards" class="case-study-image">
+
+            <div class="quote-block">
+                <p>"When I need emergency funds before payday, I want to understand my options instantly so that I can make a confident decision without feeling financially judged."</p>
+            </div>
+
+            <h3>Complete JTBD Framework:</h3>
+            <ul class="content-list">
+                <li><strong>Daily Transactions:</strong> "When I need to pay someone quickly, I want a reliable UPI experience so that I can complete the transaction without anxiety or failure."</li>
+                <li><strong>Emergency Borrowing:</strong> "When unexpected expenses arise, I want immediate access to funds with clear repayment terms so that I can handle the crisis without stress."</li>
+                <li><strong>Building Credit:</strong> "When I want to improve my financial standing, I want to understand how my actions affect my credit so that I can make smarter decisions."</li>
+                <li><strong>Savings Goals:</strong> "When I want to save for the future, I want a simple, transparent fixed deposit option so that my money grows without complexity."</li>
+                <li><strong>Expense Management:</strong> "When reviewing my spending, I want clear categorization and insights so that I can identify where my money goes."</li>
+                <li><strong>Rewards Optimization:</strong> "When I use financial products, I want to earn rewards that feel meaningful so that I'm motivated to use the app regularly."</li>
+                <li><strong>Financial Planning:</strong> "When planning monthly expenses, I want visibility into upcoming bills and salary date so that I can budget effectively."</li>
+                <li><strong>Trust Building:</strong> "When sharing my financial data, I want to know exactly how it's used and protected so that I feel safe using the platform."</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Journey Map -->
+    <section>
+        <div class="container">
+            <span class="section-number">07 — User Journey Map</span>
+            <h2>Mapping the End-to-End Experience</h2>
+            
+            <p>
+                I created a comprehensive journey map that tracked users across seven key stages, documenting their goals, emotions, pain points, and opportunities at each step. This became our north star for prioritization.
+            </p>
+
+            <img src="https://static.prod-images.emergentagent.com/jobs/597f04ac-60d6-4fd0-919a-547faecc3806/images/979866e3fc105f4d551b9c34287f8f5f774f5d341e8b48a69ea664a9a1ded111.jpeg" alt="User Journey Map" class="case-study-image">
+            <p class="image-caption">Complete user journey from discovery to habitual usage</p>
+
+            <h3>Key Insights from Journey Mapping:</h3>
+            
+            <div class="card-grid">
+                <div class="card">
+                    <h4>Discovery Stage</h4>
+                    <p><strong>Emotion:</strong> Curious but skeptical</p>
+                    <p><strong>Pain Point:</strong> "Another fintech app?"</p>
+                    <p><strong>Opportunity:</strong> Clearly communicate unique value proposition upfront</p>
+                </div>
+
+                <div class="card">
+                    <h4>Onboarding Stage</h4>
+                    <p><strong>Emotion:</strong> Hopeful but cautious</p>
+                    <p><strong>Pain Point:</strong> Long KYC process felt intrusive</p>
+                    <p><strong>Opportunity:</strong> Progressive disclosure of requirements</p>
+                </div>
+
+                <div class="card">
+                    <h4>Verification Stage</h4>
+                    <p><strong>Emotion:</strong> Anxious about data sharing</p>
+                    <p><strong>Pain Point:</strong> Unclear why salary data was needed</p>
+                    <p><strong>Opportunity:</strong> Transparent communication about data usage</p>
+                </div>
+
+                <div class="card">
+                    <h4>First Transaction</h4>
+                    <p><strong>Emotion:</strong> Nervous excitement</p>
+                    <p><strong>Pain Point:</strong> Fear of transaction failure</p>
+                    <p><strong>Opportunity:</strong> Reassuring confirmations and clear status updates</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Opportunity Areas -->
+    <section>
+        <div class="container">
+            <span class="section-number">08 — Opportunity Areas</span>
+            <h2>Translating Research into Design Opportunities</h2>
+            
+            <p>
+                Based on research findings and journey mapping, I identified five strategic opportunity areas that would have the highest impact on user trust and product adoption.
+            </p>
+
+            <div class="card-grid">
+                <div class="card">
+                    <h4>1. Reduce Financial Anxiety</h4>
+                    <p>
+                        Design for emotional safety by showing clear consequences before actions, providing undo paths, and using reassuring language throughout critical flows.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h4>2. Increase Transaction Confidence</h4>
+                    <p>
+                        Build trust through transparent calculations, real-time status updates, and clear error recovery paths. Show users exactly what's happening.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h4>3. Improve Feature Discoverability</h4>
+                    <p>
+                        Make complementary products (loans, FDs, rewards) contextually visible without overwhelming users. Progressive disclosure based on behavior.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h4>4. Simplify Financial Language</h4>
+                    <p>
+                        Replace jargon with plain language. "You'll pay back ₹10,500 in 3 months" instead of "36% APR with processing fee."
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h4>5. Build Trust Through Transparency</h4>
+                    <p>
+                        Explain why data is needed, how calculations work, and what happens next. Transparency at every decision point.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Design Principles -->
+    <section>
+        <div class="container">
+            <span class="section-number">09 — Design Principles</span>
+            <h2>Five Principles That Guided Every Decision</h2>
+            
+            <p>
+                Working with the design team, I established five core principles that would serve as our decision-making framework. These weren't aspirational statements—they were practical guidelines we used daily.
+            </p>
+
+            <img src="https://static.prod-images.emergentagent.com/jobs/597f04ac-60d6-4fd0-919a-547faecc3806/images/573702fbc7dfce0735458c06954d7d222e56154b864d8264dee6af13c42b5177.jpeg" alt="Design Principles" class="case-study-image">
+
+            <div class="card-grid">
+                <div class="card">
+                    <h4>01 — Design for Trust</h4>
+                    <p>
+                        Every interaction either builds or breaks trust. We chose to show our work: transparent calculations, clear data usage, honest error messages.
+                    </p>
+                    <p><strong>In Practice:</strong> We showed interest calculations before loan confirmation, not after.</p>
+                </div>
+
+                <div class="card">
+                    <h4>02 — Reduce Cognitive Load</h4>
+                    <p>
+                        Financial decisions are stressful. We simplified choices, removed jargon, and presented information in digestible chunks.
+                    </p>
+                    <p><strong>In Practice:</strong> Salary advance amounts were pre-calculated sliders, not open-ended inputs.</p>
+                </div>
+
+                <div class="card">
+                    <h4>03 — Explain Before Asking</h4>
+                    <p>
+                        Users need context before commitment. We always explained why we needed something before requesting it.
+                    </p>
+                    <p><strong>In Practice:</strong> Before asking for salary data, we showed how it unlocked better loan rates.</p>
+                </div>
+
+                <div class="card">
+                    <h4>04 — Prevent Errors</h4>
+                    <p>
+                        The best error message is one users never see. We designed to make mistakes impossible through smart defaults and constraints.
+                    </p>
+                    <p><strong>In Practice:</strong> UPI PINs were validated in real-time, not after submission.</p>
+                </div>
+
+                <div class="card">
+                    <h4>05 — Design for Confidence</h4>
+                    <p>
+                        Users should feel in control, not confused. Clear next steps, visible progress, and reassuring language throughout.
+                    </p>
+                    <p><strong>In Practice:</strong> Every transaction showed clear status updates and next steps.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Information Architecture -->
+    <section>
+        <div class="container">
+            <span class="section-number">10 — Information Architecture</span>
+            <h2>Organizing Financial Complexity</h2>
+            
+            <p>
+                One of the biggest challenges was organizing multiple financial products without overwhelming users. I worked through several IA iterations, testing mental models with users.
+            </p>
+
+            <img src="https://static.prod-images.emergentagent.com/jobs/597f04ac-60d6-4fd0-919a-547faecc3806/images/502f7a851e61a5b8f15c33d4ffc36c8c91cfb97da87e0ce8ba75b04dafa97909.jpeg" alt="Information Architecture" class="case-study-image">
+            <p class="image-caption">Final information architecture balancing discoverability and simplicity</p>
+
+            <h3>Key IA Decisions:</h3>
+            
+            <div class="card">
+                <h4>Primary Navigation Structure</h4>
+                <p>
+                    After testing several patterns, we settled on a hybrid approach: <strong>task-based primary navigation</strong> (Home, Pay, Borrow, Grow, Profile) rather than product-based navigation.
+                </p>
+                <p><strong>Why?</strong> Users think in actions ("I need to pay someone") not products ("I need UPI"). This mental model matched user behavior better.</p>
+            </div>
+
+            <div class="card">
+                <h4>Progressive Disclosure Strategy</h4>
+                <p>
+                    Not all users needed all products. We showed salary advance only after UPI activation, loans only after credit score was available, and FDs only after a user had demonstrated savings behavior.
+                </p>
+                <p><strong>Why?</strong> Reduced initial overwhelm while still enabling discovery when contextually relevant.</p>
+            </div>
+
+            <div class="card">
+                <h4>Cross-Product Connections</h4>
+                <p>
+                    We created clear pathways between related products: salary advance → loans, transaction history → budget insights, rewards → redemption.
+                </p>
+                <p><strong>Why?</strong> Encouraged ecosystem usage without forcing it. Let users discover organically.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- User Flows -->
+    <section id="solution">
+        <div class="container">
+            <span class="section-number">11 — User Flows</span>
+            <h2>Designing Critical Task Flows</h2>
+            
+            <p>
+                I mapped and designed flows for every major user task, focusing on decision points, error states, and success paths. Here are two of the most critical flows:
+            </p>
+
+            <h3>UPI Payment Flow</h3>
+            <img src="https://static.prod-images.emergentagent.com/jobs/597f04ac-60d6-4fd0-919a-547faecc3806/images/975f43d1e4c738d031987c4fe9096ad886e7e9ea4ac7ec15a863d8b3a71d4508.jpeg" alt="UPI Payment Flow" class="case-study-image">
+            
+            <div class="card">
+                <h4>Key Flow Decisions:</h4>
+                <ul>
+                    <li><strong>Review Before Confirm:</strong> Mandatory review screen with editable fields reduced wrong-recipient errors by 67%</li>
+                    <li><strong>Real-Time Validation:</strong> Amount limits checked before PIN entry, not after</li>
+                    <li><strong>Clear Success State:</strong> Transaction confirmation with next actions (share receipt, repeat payment)</li>
+                    <li><strong>Graceful Failures:</strong> Network errors showed "Retry" with explanation, not just "Failed"</li>
+                </ul>
+            </div>
+
+            <h3>Salary Advance Flow</h3>
+            <img src="https://static.prod-images.emergentagent.com/jobs/597f04ac-60d6-4fd0-919a-547faecc3806/images/f74f26da0e134862b39f1aa0c58602020ba2b68cd67e06002912942b2ff33087.jpeg" alt="Salary Advance Flow" class="case-study-image">
+            
+            <div class="card">
+                <h4>Key Flow Decisions:</h4>
+                <ul>
+                    <li><strong>Upfront Eligibility:</strong> Showed available amount immediately on dashboard, no hidden eligibility checks</li>
+                    <li><strong>Transparent Terms:</strong> Full repayment schedule shown before request, not buried in fine print</li>
+                    <li><strong>Non-Judgmental Language:</strong> "Early salary access" instead of "loan," reducing emotional stigma</li>
+                    <li><strong>Clear Repayment:</strong> Automatic deduction explained with date and amount shown prominently</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- UX Exploration -->
+    <section>
+        <div class="container">
+            <span class="section-number">12 — UX Exploration & Trade-offs</span>
+            <h2>Design Decisions That Shaped the Product</h2>
+            
+            <p>
+                Design is about making choices. Here are three critical explorations where we had to weigh alternatives, consider trade-offs, and make decisions that balanced user needs with business goals and technical constraints.
+            </p>
+
+            <img src="https://static.prod-images.emergentagent.com/jobs/597f04ac-60d6-4fd0-919a-547faecc3806/images/c3a578c528a4af745f7ccb2ed594129a03e4d7ae12842114d0132c7953da467e.jpeg" alt="Wireframe Explorations" class="case-study-image">
+            <p class="image-caption">Early explorations of home screen layouts testing different information hierarchies</p>
+
+            <h3>Exploration 1: Dashboard Balance Visibility</h3>
+            
+            <div class="card">
+                <h4>The Problem</h4>
+                <p>Should we show account balance prominently on the home screen, or hide it behind a tap for privacy?</p>
+                
+                <h4>Alternatives Considered</h4>
+                <ul>
+                    <li><strong>Option A:</strong> Always visible balance at the top</li>
+                    <li><strong>Option B:</strong> Masked balance with tap-to-reveal</li>
+                    <li><strong>Option C:</strong> User preference setting</li>
+                </ul>
+                
+                <h4>Trade-offs</h4>
+                <p><strong>Visible Balance:</strong> Builds trust, provides context, but reduces privacy in public spaces.</p>
+                <p><strong>Hidden Balance:</strong> Protects privacy, but adds friction for every session.</p>
+                
+                <h4>Final Decision</h4>
+                <p>We chose <strong>always-visible balance with a quick-hide toggle</strong> in the top-right corner. Default was visible to build trust, but users could hide it with one tap.</p>
+                
+                <h4>Outcome</h4>
+                <p>87% of users kept balance visible. Privacy concerns were less common than we expected, and trust increased.</p>
+            </div>
+
+            <h3>Exploration 2: Salary Advance Discoverability</h3>
+            
+            <div class="card">
+                <h4>The Problem</h4>
+                <p>Many users didn't know salary advance existed. How could we surface it without feeling pushy or predatory?</p>
+                
+                <h4>Alternatives Considered</h4>
+                <ul>
+                    <li><strong>Option A:</strong> Persistent banner on home screen</li>
+                    <li><strong>Option B:</strong> Contextual prompt when balance was low</li>
+                    <li><strong>Option C:</strong> Dedicated navigation tab</li>
+                </ul>
+                
+                <h4>Trade-offs</h4>
+                <p><strong>Banner:</strong> High visibility, but felt promotional and cluttered the UI.</p>
+                <p><strong>Contextual:</strong> Helpful timing, but could feel manipulative during financial stress.</p>
+                <p><strong>Tab:</strong> Clear access, but required users to explore on their own.</p>
+                
+                <h4>Final Decision</h4>
+                <p>We chose a <strong>hybrid approach:</strong> a subtle, non-promotional card on the home screen showing "Available: ₹X,XXX" with clear terms visible immediately. No loan-like language.</p>
+                
+                <h4>Outcome</h4>
+                <p>Salary advance discovery increased by 124%, with NPS remaining positive because users felt informed, not targeted.</p>
+            </div>
+
+            <img src="https://static.prod-images.emergentagent.com/jobs/597f04ac-60d6-4fd0-919a-547faecc3806/images/7fd577568bc1253557bae4b9d7ecc7de1a9be8e56a1d502b54893c81edbc6b8c.jpeg" alt="Decision Matrix" class="case-study-image">
+            <p class="image-caption">Prioritization matrix helping us balance user value and implementation effort</p>
+
+            <h3>Exploration 3: Onboarding Length</h3>
+            
+            <div class="card">
+                <h4>The Problem</h4>
+                <p>KYC and salary verification required multiple steps. Should we complete everything upfront or spread it across sessions?</p>
+                
+                <h4>Alternatives Considered</h4>
+                <ul>
+                    <li><strong>Option A:</strong> Complete onboarding before any feature access (6 steps)</li>
+                    <li><strong>Option B:</strong> Minimal signup, defer verification until needed</li>
+                    <li><strong>Option C:</strong> Staged onboarding tied to feature unlocks</li>
+                </ul>
+                
+                <h4>Trade-offs</h4>
+                <p><strong>Upfront:</strong> Higher initial drop-off, but fully verified users from day one.</p>
+                <p><strong>Deferred:</strong> Faster activation, but friction later when users tried to borrow.</p>
+                
+                <h4>Final Decision</h4>
+                <p>We chose <strong>staged onboarding</strong>: basic KYC for UPI payments (3 steps), salary verification only when user explored salary advance.</p>
+                
+                <h4>Outcome</h4>
+                <p>Activation improved from 58% to 76%. Users who reached salary advance completed verification at 82% rate because they had clear motivation.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final UI -->
+    <section>
+        <div class="container">
+            <span class="section-number">13 — Final Solution</span>
+            <h2>The Redesigned Experience</h2>
+            
+            <p>
+                After months of research, iteration, and testing, we shipped a redesigned experience that balanced simplicity with powerful financial capabilities. Here's what changed:
+            </p>
+
+            <img src="https://static.prod-images.emergentagent.com/jobs/597f04ac-60d6-4fd0-919a-547faecc3806/images/b7674a2ebe6dc3ef1dcc561b0e9ac2e3db27fb8f5b79748cd17198803e1a6509.jpeg" alt="Dashboard UI with Annotations" class="case-study-image">
+            <p class="image-caption">Final dashboard design with key UX decisions annotated</p>
+
+            <img src="https://static.prod-images.emergentagent.com/jobs/597f04ac-60d6-4fd0-919a-547faecc3806/images/52580d0f67ca5cba160990c0ef86f5ad59405cd23110ddb1eb85ec3460b08bb5.jpeg" alt="Before and After" class="case-study-image">
+            <p class="image-caption">Before and after comparison showing clarity improvements</p>
+
+            <h3>Key Design Improvements:</h3>
+            
+            <div class="card-grid">
+                <div class="card">
+                    <h4>Clearer Visual Hierarchy</h4>
+                    <p>Reduced cognitive load by prioritizing primary actions and using clear visual weight to guide attention.</p>
+                </div>
+
+                <div class="card">
+                    <h4>Plain Language Throughout</h4>
+                    <p>Replaced financial jargon with conversational language that users actually understood.</p>
+                </div>
+
+                <div class="card">
+                    <h4>Trust-Building Micro-copy</h4>
+                    <p>Every interaction included reassuring language: "Your data is encrypted," "You can change this later," "This won't affect your credit score."</p>
+                </div>
+
+                <div class="card">
+                    <h4>Transparent Calculations</h4>
+                    <p>Showed how interest, fees, and repayment amounts were calculated—no hidden math.</p>
+                </div>
+
+                <div class="card">
+                    <h4>Contextual Education</h4>
+                    <p>Embedded tooltips and help text exactly where users needed them, not in separate help sections.</p>
+                </div>
+
+                <div class="card">
+                    <h4>Clear Status Updates</h4>
+                    <p>Every transaction showed real-time status with next steps, never leaving users wondering what happened.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Accessibility -->
+    <section>
+        <div class="container">
+            <span class="section-number">14 — Accessibility & Inclusive Design</span>
+            <h2>Designing for Everyone</h2>
+            
+            <p>
+                Accessibility wasn't an afterthought—it was baked into our design process from day one. Financial services should be accessible to all users, regardless of ability.
+            </p>
+
+            <img src="https://static.prod-images.emergentagent.com/jobs/597f04ac-60d6-4fd0-919a-547faecc3806/images/696b61dc03a93d32f2de6cb901ea6c6767c35789d07b7134fae15481752385d6.jpeg" alt="Accessibility Features" class="case-study-image">
+
+            <div class="card-grid">
+                <div class="card">
+                    <h4>WCAG AA Contrast</h4>
+                    <p>All text met 4.5:1 contrast ratio minimum. Critical financial information (amounts, dates, terms) exceeded 7:1 for AAA compliance.</p>
+                </div>
+
+                <div class="card">
+                    <h4>Large Touch Targets</h4>
+                    <p>All interactive elements met 44x44px minimum touch target size. Critical actions like "Confirm Payment" were even larger (56x56px).</p>
+                </div>
+
+                <div class="card">
+                    <h4>Screen Reader Support</h4>
+                    <p>Semantic HTML, proper ARIA labels, and logical focus order. Tested with VoiceOver and TalkBack to ensure financial data was announced clearly.</p>
+                </div>
+
+                <div class="card">
+                    <h4>Dynamic Text Sizing</h4>
+                    <p>Supported OS-level text size preferences. UI scaled gracefully from 100% to 200% without breaking layouts.</p>
+                </div>
+
+                <div class="card">
+                    <h4>Color-Independent Feedback</h4>
+                    <p>Never relied on color alone. Success used checkmarks + green, errors used icons + red, status used text + color.</p>
+                </div>
+
+                <div class="card">
+                    <h4>Keyboard Navigation</h4>
+                    <p>All flows completable via keyboard alone. Focus indicators were clear and visible throughout.</p>
+                </div>
+            </div>
+
+            <div class="quote-block">
+                <p>"Making fintech accessible isn't just ethical—it's smart business. More users, better trust, stronger product."</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Edge Cases -->
+    <section>
+        <div class="container">
+            <span class="section-number">15 — Edge Cases & Error Handling</span>
+            <h2>Designing for When Things Go Wrong</h2>
+            
+            <p>
+                In fintech, edge cases aren't edge cases—they're critical moments of trust. I spent significant time designing error states, failure recovery, and edge case handling.
+            </p>
+
+            <img src="https://static.prod-images.emergentagent.com/jobs/597f04ac-60d6-4fd0-919a-547faecc3806/images/a3762c23a3a75a8244851a69cfed12fbb1bc49b231389b39cb67ae2b94099e3e.jpeg" alt="Edge Cases Grid" class="case-study-image">
+
+            <h3>Critical Edge Cases Addressed:</h3>
+            
+            <div class="card-grid">
+                <div class="card">
+                    <h4>Network Failure During Payment</h4>
+                    <p><strong>Problem:</strong> Users feared duplicate payments or lost money.</p>
+                    <p><strong>Solution:</strong> Clear "Processing" state with explanation, automatic retry logic, and transaction ID visible immediately.</p>
+                </div>
+
+                <div class="card">
+                    <h4>OTP Expiry</h4>
+                    <p><strong>Problem:</strong> Users got stuck when verification codes expired.</p>
+                    <p><strong>Solution:</strong> Timer visible during entry, clear "Resend OTP" button appeared automatically when expired, with new code arrival confirmation.</p>
+                </div>
+
+                <div class="card">
+                    <h4>Bank Server Downtime</h4>
+                    <p><strong>Problem:</strong> External API failures felt like app failures.</p>
+                    <p><strong>Solution:</strong> Honest communication: "Your bank's server is temporarily down. Try again in 5 minutes." Set expectations clearly.</p>
+                </div>
+
+                <div class="card">
+                    <h4>Session Timeout During Flow</h4>
+                    <p><strong>Problem:</strong> Users lost progress mid-flow.</p>
+                    <p><strong>Solution:</strong> Auto-save at each step, graceful re-authentication, resume exactly where they left off.</p>
+                </div>
+
+                <div class="card">
+                    <h4>Loan Rejection</h4>
+                    <p><strong>Problem:</strong> Rejection felt personal and stigmatizing.</p>
+                    <p><strong>Solution:</strong> Empathetic language, clear reasons (without blame), actionable next steps to improve eligibility.</p>
+                </div>
+
+                <div class="card">
+                    <h4>Duplicate Payment Prevention</h4>
+                    <p><strong>Problem:</strong> Users double-tapped "Pay" due to anxiety.</p>
+                    <p><strong>Solution:</strong> Button disabled immediately on tap, loading state visible, duplicate detection on backend with clear messaging.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Measuring Success -->
+    <section id="impact">
+        <div class="container">
+            <span class="section-number">16 — Measuring Success</span>
+            <h2>Impact and Outcomes</h2>
+            
+            <p>
+                We tracked a mix of quantitative UX metrics and qualitative feedback to measure the impact of our redesign. Here's what changed:
+            </p>
+
+            <img src="https://static.prod-images.emergentagent.com/jobs/597f04ac-60d6-4fd0-919a-547faecc3806/images/93eba291dccf3f1f9d3755162f440377c5a392b0d9a74b4f3a3696f8a8b603b3.jpeg" alt="Metrics Dashboard" class="case-study-image">
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">87%</div>
+                    <div class="stat-label">KYC Completion Rate<br>(up from 58%)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">92%</div>
+                    <div class="stat-label">Task Success Rate<br>(vs 76% before)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">96%</div>
+                    <div class="stat-label">Payment Success<br>(up from 89%)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">-34%</div>
+                    <div class="stat-label">Drop-off Reduction<br>in critical flows</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">68</div>
+                    <div class="stat-label">NPS Score<br>(up from 52)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">-42%</div>
+                    <div class="stat-label">Support Tickets<br>fewer "how do I" questions</div>
+                </div>
+            </div>
+
+            <h3>Qualitative Feedback</h3>
+            
+            <div class="quote-block">
+                <p>"This is the first fintech app where I actually understand what's happening with my money."</p>
+            </div>
+
+            <div class="quote-block">
+                <p>"I love that it shows me exactly how much I'll pay back before I even request the advance. No surprises."</p>
+            </div>
+
+            <h3>Business Impact</h3>
+            <ul class="content-list">
+                <li>100,000+ active users within 9 months of redesign launch</li>
+                <li>Salary advance activation increased by 124%</li>
+                <li>Cross-product usage improved by 67% (users using 2+ products)</li>
+                <li>Customer support costs reduced by 38%</li>
+                <li>App Store rating improved from 3.8 to 4.6 stars</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Reflection -->
+    <section>
+        <div class="container">
+            <span class="section-number">17 — Reflection</span>
+            <h2>What I Learned and What I'd Do Differently</h2>
+            
+            <h3>What Worked Well</h3>
+            
+            <div class="card">
+                <h4>Research-Driven Decision Making</h4>
+                <p>
+                    Starting with deep user research paid off. Every major design decision had evidence behind it, which made stakeholder alignment easier and gave the team confidence in our direction.
+                </p>
+            </div>
+
+            <div class="card">
+                <h4>Designing for Trust First</h4>
+                <p>
+                    Making trust our primary design principle—even above efficiency—was the right call for fintech. Users valued transparency and clarity more than speed.
+                </p>
+            </div>
+
+            <div class="card">
+                <h4>Cross-Functional Collaboration</h4>
+                <p>
+                    I involved Engineering and Product early in the design process. This caught technical constraints before they became problems and ensured designs were actually buildable.
+                </p>
+            </div>
+
+            <h3>Challenges I Faced</h3>
+            
+            <div class="card">
+                <h4>Balancing Regulation and UX</h4>
+                <p>
+                    RBI compliance required specific disclosures that cluttered the UI. Finding ways to meet legal requirements while maintaining clarity was a constant negotiation. I learned to work more closely with Legal earlier in the process.
+                </p>
+            </div>
+
+            <div class="card">
+                <h4>Technical Constraints on Real-Time Updates</h4>
+                <p>
+                    Our backend couldn't support real-time balance updates initially. We had to design around this limitation with smart loading states and refresh patterns. Post-launch, Engineering prioritized this and we improved it.
+                </p>
+            </div>
+
+            <div class="card">
+                <h4>Scaling Design Across Multiple Products</h4>
+                <p>
+                    Maintaining consistency across UPI, loans, FDs, and rewards required a robust design system. We built one mid-project, but I wish we'd started with it. It would have saved rework.
+                </p>
+            </div>
+
+            <h3>What I'd Do Differently</h3>
+            
+            <ul class="content-list">
+                <li><strong>Earlier Design System Investment:</strong> Build the component library and design tokens before scaling to multiple products.</li>
+                <li><strong>More Iterative User Testing:</strong> We did thorough research upfront but could have done more lightweight testing during build phase.</li>
+                <li><strong>Better Documentation:</strong> Document design decisions and rationale more systematically. Future designers would benefit from understanding the "why" behind choices.</li>
+                <li><strong>Metrics Dashboard from Day One:</strong> Set up automated UX metrics tracking earlier to see trends in real-time rather than relying on quarterly reports.</li>
+                <li><strong>More Accessibility Testing:</strong> While we met WCAG standards, testing with actual users with disabilities would have surfaced issues our audits missed.</li>
+            </ul>
+
+            <h3>How This Project Shaped My Approach</h3>
+            
+            <p>
+                This project reinforced my belief that great product design isn't about beautiful screens—it's about solving real problems with empathy, rigor, and collaboration. 
+            </p>
+
+            <p>
+                It taught me that in fintech, trust is the product. Every design decision either builds or erodes that trust. Transparency, clarity, and honesty aren't just nice-to-haves—they're competitive advantages.
+            </p>
+
+            <p>
+                Most importantly, it showed me the value of systems thinking. Designing individual features is easy. Designing a cohesive ecosystem where every part supports every other part—that's the real challenge, and where senior design thinking matters most.
+            </p>
+
+            <div class="quote-block">
+                <p>"The best designs are invisible. They don't draw attention to themselves—they help people accomplish their goals with confidence and clarity."</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <section style="background: var(--gray-900); color: white; padding: 4rem 0;">
+        <div class="container">
+            <h2 style="color: white;">Thanks for Reading</h2>
+            <p style="color: rgba(255,255,255,0.8);">
+                This case study represents 9 months of research, design, iteration, and collaboration. If you'd like to discuss this project in more detail or hear about other work, I'd love to connect.
+            </p>
+            <p style="color: rgba(255,255,255,0.6); font-size: 0.95rem; margin-top: 3rem;">
+                Portfolio Case Study — 2024<br>
+                All visuals and content created for interview presentation purposes
+            </p>
+        </div>
+    </section>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">↑</div>
+
+    <script>
+        // Smooth scroll for navigation
+        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Back to top button
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Image zoom on click
+        document.querySelectorAll('.case-study-image').forEach(img => {
+            img.addEventListener('click', function() {
+                const overlay = document.createElement('div');
+                overlay.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);z-index:10000;display:flex;align-items:center;justify-content:center;cursor:zoom-out;';
+                
+                const zoomedImg = document.createElement('img');
+                zoomedImg.src = this.src;
+                zoomedImg.style.cssText = 'max-width:90%;max-height:90%;border-radius:8px;';
+                
+                overlay.appendChild(zoomedImg);
+                document.body.appendChild(overlay);
+                
+                overlay.addEventListener('click', () => {
+                    document.body.removeChild(overlay);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
